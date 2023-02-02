@@ -19,7 +19,7 @@ module StateMachine
         def define_action_helpers
           if action_hook == :save
             define_helper :instance, <<-end_eval, __FILE__, __LINE__ + 1
-              def save(*)
+              def save(**)
                 self.class.state_machines.transitions(self, :save).perform { super }
               end
             end_eval
@@ -51,7 +51,7 @@ module StateMachine
         def define_action_helpers
           if action_hook == :save
             define_helper :instance, <<-end_eval, __FILE__, __LINE__ + 1
-              def save(*)
+              def save(**)
                 self.class.state_machines.transitions(self, :save).perform { super }
               end
               

@@ -447,7 +447,7 @@ module StateMachine
         def define_action_helpers
           if action_hook == :save
             define_helper :instance, <<-end_eval, __FILE__, __LINE__ + 1
-              def save(*)
+              def save(**)
                 result = self.class.state_machines.transitions(self, :save).perform { super }
                 assert_save_successful(:save, result)
                 result
